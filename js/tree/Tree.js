@@ -27,9 +27,9 @@ troop.postpone(sntls, 'Tree', function () {
             getNode: function (path) {
                 var asArray = path.asArray,
                     result = this.items,
-                    i;
+                    i, len = asArray.length;
 
-                for (i = 0; i < asArray.length; i++) {
+                for (i = 0; i < len; i++) {
                     result = result[asArray[i]];
                     if (typeof result === 'undefined') {
                         break;
@@ -60,9 +60,9 @@ troop.postpone(sntls, 'Tree', function () {
                 var asArray = path.asArray,
                     hasChanged = false,
                     result = this.items,
-                    i, key;
+                    i, key, len = asArray.length;
 
-                for (i = 0; i < asArray.length; i++) {
+                for (i = 0; i < len; i++) {
                     key = asArray[i];
                     if (typeof result[key] !== 'object') {
                         hasChanged = true;
@@ -226,10 +226,11 @@ troop.postpone(sntls, 'Tree', function () {
 
                     targetLevel, // position of target key in path
                     targetParent, // parent node in which to delete
-                    targetKey; // key in parent node to be deleted
+                    targetKey, // key in parent node to be deleted
+                    len = asArray.length;
 
                 // determining deletion target
-                for (i = 0; i < asArray.length; i++) {
+                for (i = 0; i < len; i++) {
                     nextKey = asArray[i];
 
                     currentNodeSingle = sntls.Utils.isSingularObject(currentNode);
